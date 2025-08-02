@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>David Harris - Resume</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -16,144 +16,181 @@
   </script>
 
   <style>
-    .logo {
-      font-size: 1.4rem;
-      font-weight: 600;
-      text-align: center;
-      color: #00bcd4;
-      line-height: 1.2;
-      margin-bottom: 0.2rem;
-    }
-    .contact-details {
-      font-size: 0.8rem;
-      color: #bbb;
-      text-align: center;
-      line-height: 1.4;
-    }
-    .contact-details a {
-      color: #bbb;
-      text-decoration: none;
-    }
-    .contact-details a:hover {
-      color: #00bcd4;
-      text-decoration: underline;
-    }
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
+  .logo {
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-align: center;
+    color: #00bcd4;
+    line-height: 1.2;
+    margin-bottom: 0.2rem;
+  }
+  .contact-details {
+    font-size: 0.8rem;
+    color: #bbb;
+    text-align: center;
+    line-height: 1.4;
+  }
+  .contact-details a {
+    color: #bbb;
+    text-decoration: none;
+  }
+  .contact-details a:hover {
+    color: #00bcd4;
+    text-decoration: underline;
+  }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  body {
+    display: flex;
+    background-color: #121212;
+    color: #f0f0f0;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 240px;
+    height: 100vh;
+    background-color: #1e1e1e;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-y: auto;
+  }
+  .sidebar .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #00bcd4;
+  }
+  .sidebar nav ul {
+    list-style: none;
+  }
+  .sidebar nav ul li {
+    margin: 1rem 0;
+  }
+  .sidebar nav ul li a {
+    color: #ccc;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.3s ease;
+  }
+  .sidebar nav ul li a:hover {
+    color: #00bcd4;
+  }
+  .social a {
+    color: #ccc;
+    margin-right: 1rem;
+    font-size: 1.2rem;
+  }
+  .download-btn {
+    margin-top: 2rem;
+    padding: 0.5rem 1rem;
+    background-color: #00bcd4;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .content {
+    margin-left: 260px;
+    padding: 2rem;
+    width: calc(100% - 260px);
+  }
+  .card {
+    background-color: #1e1e1e;
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 188, 212, 0.1);
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  .card h2 {
+    margin-bottom: 1rem;
+    color: #00bcd4;
+  }
+  .card p, .card li {
+    line-height: 1.6;
+  }
+  .three-cols ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.5rem 1rem;
+  }
+  @keyframes fadeIn {
+    0% {opacity: 0; transform: translateY(10px);}
+    100% {opacity: 1; transform: translateY(0);}
+  }
+  .three-col-flex {
+    display: flex;
+    gap: 2rem;
+    justify-content: space-between;
+  }
+  .three-col-flex ul {
+    list-style: disc;
+    padding-left: 1rem;
+  }
+  .three-col-flex li {
+    margin-bottom: 0.5rem;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  @media (max-width: 768px) {
     body {
-      display: flex;
-      background-color: #121212;
-      color: #f0f0f0;
-    }
-    .sidebar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 240px;
-      height: 100vh;
-      background-color: #1e1e1e;
-      padding: 2rem 1rem;
-      display: flex;
       flex-direction: column;
-      justify-content: space-between;
     }
-    .sidebar .logo {
-      font-size: 1.8rem;
-      font-weight: bold;
-      margin-bottom: 2rem;
-      text-align: center;
-      color: #00bcd4;
+
+    .sidebar {
+      position: static;
+      width: 100%;
+      height: auto;
+      flex-direction: column;
+      padding: 1rem;
     }
+
     .sidebar nav ul {
-      list-style: none;
-    }
-    .sidebar nav ul li {
-      margin: 1rem 0;
-    }
-    .sidebar nav ul li a {
-      color: #ccc;
-      text-decoration: none;
       display: flex;
-      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 0.5rem;
-      transition: color 0.3s ease;
     }
-    .sidebar nav ul li a:hover {
-      color: #00bcd4;
+
+    .sidebar nav ul li {
+      margin: 0.5rem;
     }
-    .social a {
-      color: #ccc;
-      margin-right: 1rem;
-      font-size: 1.2rem;
-    }
-    .download-btn {
-      margin-top: 2rem;
-      padding: 0.5rem 1rem;
-      background-color: #00bcd4;
-      color: #fff;
-      text-align: center;
-      border-radius: 5px;
-      text-decoration: none;
-    }
+
     .content {
-      margin-left: 260px;
-      padding: 2rem;
-      width: calc(100% - 260px);
+      margin-left: 0;
+      width: 100%;
+      padding: 1rem;
     }
-    .card {
-      background-color: #1e1e1e;
-      margin-bottom: 1.5rem;
-      padding: 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 188, 212, 0.1);
-      animation: fadeIn 0.5s ease-in-out;
-    }
-    .card h2 {
-      margin-bottom: 1rem;
-      color: #00bcd4;
-    }
-    .card p, .card li {
-      line-height: 1.6;
-    }
-    .three-cols ul {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 0.5rem 1rem;
-    }
-    @keyframes fadeIn {
-      0% {opacity: 0; transform: translateY(10px);}
-      100% {opacity: 1; transform: translateY(0);}
-    }
-    @media (max-width: 768px) {
-      .sidebar {
-        position: relative;
-        width: 100%;
-        height: auto;
-        flex-direction: row;
-        justify-content: space-around;
-      }
-      .content {
-        margin-left: 0;
-        width: 100%;
-      }
-    }
+
     .three-col-flex {
-      display: flex;
-      gap: 2rem;
-      justify-content: space-between;
+      flex-direction: column;
     }
-    .three-col-flex ul {
-      list-style: disc;
-      padding-left: 1rem;
+
+    .download-btn {
+      width: 100%;
+      text-align: center;
     }
-    .three-col-flex li {
-      margin-bottom: 0.5rem;
-    }
-  </style>
+  }
+</style>
+
 </head>
 <body>
   <aside class="sidebar">
