@@ -4,240 +4,411 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>David Harris - Resume</title>
-    <style>
-    :root {
-      color-scheme: dark;
-    }
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #0e1117;
-      color: #e4e6eb;
-    }
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
 
-    nav {
-      background-color: #1f6feb;
-      padding: 1em;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-    }
-
-    nav a {
-      color: white;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s;
-    }
-
-    nav a:hover {
-      color: #d0dfff;
-    }
-
-    .container {
-      padding: 2em;
-      max-width: 1000px;
-      margin: auto;
-      min-height: 100vh;
-      background-color: #0e1117;
-    }
-
-    .card {
-      background: #161b22;
-      border-radius: 12px;
-      padding: 2em;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
-      margin-bottom: 2em;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
-    }
-
-    h1, h2, h3 {
-      margin-top: 0;
-      color: #58a6ff;
-    }
-
-    ul {
-      padding-left: 1.25em;
-    }
-
-    ul li {
-      margin-bottom: 0.5em;
-    }
-
-    .skill-columns {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1em;
-    }
-
-    .skill-columns div {
-      flex: 1 1 300px;
-    }
-
-    .intro {
+  <style>
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 600;
       text-align: center;
-      padding: 2em 1em 0.5em;
-      border-bottom: 1px solid #2c2f36;
+      color: #00bcd4;
+      line-height: 1.2;
+      margin-bottom: 0.2rem;
     }
-
-    .intro h1 {
-      margin: 0;
-      font-size: 2em;
-      color: #2ec4b6;
+    .contact-details {
+      font-size: 0.8rem;
+      color: #bbb;
+      text-align: center;
+      line-height: 1.4;
     }
-
-    .intro p {
-      margin: 0.5em 0 0;
-      font-size: 0.95em;
-      color: #ccc;
-    }
-
-    .intro a {
-      color: #2ec4b6;
+    .contact-details a {
+      color: #bbb;
       text-decoration: none;
     }
-
-    .intro a:hover {
+    .contact-details a:hover {
+      color: #00bcd4;
       text-decoration: underline;
     }
-  </style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      display: flex;
+      background-color: #121212;
+      color: #f0f0f0;
+    }
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 240px;
+      height: 100vh;
+      background-color: #1e1e1e;
+      padding: 2rem 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .sidebar .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin-bottom: 2rem;
+      text-align: center;
+      color: #00bcd4;
+    }
+    .sidebar nav ul {
+      list-style: none;
+    }
+    .sidebar nav ul li {
+      margin: 1rem 0;
+    }
+    .sidebar nav ul li a {
+      color: #ccc;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.3s ease;
+    }
+    .sidebar nav ul li a:hover {
+      color: #00bcd4;
+    }
+    .social a {
+      color: #ccc;
+      margin-right: 1rem;
+      font-size: 1.2rem;
+    }
+    .download-btn {
+      margin-top: 2rem;
+      padding: 0.5rem 1rem;
+      background-color: #00bcd4;
+      color: #fff;
+      text-align: center;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+    .content {
+      margin-left: 260px;
+      padding: 2rem;
+      width: calc(100% - 260px);
+    }
+    .card {
+      background-color: #1e1e1e;
+      margin-bottom: 1.5rem;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 188, 212, 0.1);
+      animation: fadeIn 0.5s ease-in-out;
+    }
+    .card h2 {
+      margin-bottom: 1rem;
+      color: #00bcd4;
+    }
+    .card p, .card li {
+      line-height: 1.6;
+    }
+    .three-cols ul {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 0.5rem 1rem;
+    }
+    @keyframes fadeIn {
+      0% {opacity: 0; transform: translateY(10px);}
+      100% {opacity: 1; transform: translateY(0);}
+    }
+    @media (max-width: 768px) {
+      .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        justify-content: space-around;
+      }
+      .content {
+        margin-left: 0;
+        width: 100%;
+      }
+    }
+    .three-col-flex {
+      display: flex;
+      gap: 2rem;
+      justify-content: space-between;
+    }
+    .three-col-flex ul {
+      list-style: disc;
+      padding-left: 1rem;
+    }
+    .three-col-flex li {
+      margin-bottom: 0.5rem;
+    }
   </style>
 </head>
 <body>
-  <div class="intro">
-    <h1>HARRIS DAVID CHUKWUEBUKA</h1>
-    <p>Newport - Gwent, NP19 4AN United Kingdom | +44 7502246881 | <a href="mailto:davidharris200111@gmail.com">davidharris200111@gmail.com</a></p>
-  </div>
-  
-  <nav>
-    <a href="#summary">Summary</a>
-    <a href="#experience">Experience</a>
-    <a href="#training">Training</a>
-    <a href="#skills">Skills</a>
-    <a href="#certifications">Certifications</a>
-    <a href="#education">Education</a>
-    <a href="#projects">Projects</a>
-    <a href="#goals">Career Goals</a>
-  </nav>
+  <aside class="sidebar">
+    <div class="logo">Chukwuebuka David Harris</div>
+    <div class="contact-details">
+      Newport - Gwent, NP19 4AN United Kingdom<br>
+      +44 7903342754<br>
+      <a href="mailto:davidharris200111@gmail.com">davidharris200111@gmail.com</a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#summary"><i class="fas fa-user"></i> Summary</a></li>
+		<li><a href="#goals"><i class="fas fa-bullseye"></i> Career Goals</a></li>
+        <li><a href="#experience"><i class="fas fa-briefcase"></i> Experience</a></li>
+        <li><a href="#training"><i class="fas fa-graduation-cap"></i> Training</a></li>
+        <li><a href="#Skills"><i class="fas fa-cogs"></i> Skills</a></li>
+		<li><a href="#skills-progress"><i class="fas fa-signal"></i> Skill Bars</a></li>
+        <li><a href="#tools"><i class="fas fa-wrench"></i> Tools</a></li>
+        <li><a href="#education"><i class="fas fa-school"></i> Education</a></li>
+		<li><a href="#certifications"><i class="fas fa-certificate"></i> Certifications</a></li>
+        <li><a href="#projects"><i class="fas fa-code"></i> Projects</a></li>      
+        <li><a href="#portfolio"><i class="fas fa-download"></i> Portfolio</a></li>
+        <li><a href="#experience-timeline"><i class="fas fa-stream"></i> Timeline</a></li>      
+        <li><a href="#testimonials"><i class="fas fa-comment"></i> Testimonials</a></li>
+        <li><a href="#project-gallery"><i class="fas fa-image"></i> Gallery</a></li>
+      </ul>
+    </nav>
+    <div>
+      <div class="social">
+        <a href="mailto:davidharris200111@gmail.com"><i class="fas fa-envelope"></i></a>
+        <a href="https://github.com/kingdavid200" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/chukwuebuka-harris-38a57619a" target="_blank"><i class="fab fa-linkedin"></i></a>
+      </div>
+      <br>
+      <a href="DavidHarrisCV.pdf" download class="download-btn"><i class="fas fa-download"></i> Resume</a>
+    </div>
+  </aside>
 
-  <div class="container">
-    <div class="card" id="summary">
-  <h2>Professional Summary</h2>
-  <p>I am a driven and enthusiastic Computer Science graduate looking for an opportunity to contribute my expertise in software development, IT services, and analytical thinking. I have a genuine passion for technology and a strong desire to gain real-world experience in a dynamic work setting. Known for being a reliable team player with solid leadership abilities, adaptability, and a forward-thinking mindset. I bring hands-on experience in delivering quality technical support and effectively troubleshooting to maintain smooth IT operations. Resourceful in identifying and resolving both hardware and software problems efficiently. I am skilled in clear communication, especially when translating technical ideas into user-friendly explanations.</p>
+  <main class="content">
+<section id="summary" class="card expandable">
+
+      <h2>Professional Summary</h2>
+      <p>I am a driven and enthusiastic Computer Science graduate looking for an opportunity to contribute my
+expertise in software development, IT services, and analytical thinking. I have a genuine passion for
+technology and a strong desire to gain real-world experience in a dynamic work setting. Known for being
+a reliable team player with solid leadership abilities, adaptability, and a forward-thinking mindset. I bring
+hands-on experience in delivering quality technical support and effectively troubleshooting to maintain
+smooth IT operations. Resourceful in identifying and resolving both hardware and software problems
+efficiently. I am skilled in clear communication, especially when translating technical ideas into userfriendly explanations.
+</p>
+    </section>
+
+<section id="goals" class="card expandable">
+      <h2>Career Goals</h2>
+      <p>Gain hands-on experience in software, mobile, and web development while enhancing problem-solving and analytical skills. Develop expertise in AI, machine learning, and emerging technologies to contribute to innovative tech solutions.</p>
+    </section>	
+	
+	<section id="experience" class="card expandable">
+  <h2>Experience</h2>
+
+  <h3>Data Analyst – Digital Echoes (London, UK) <span style="font-weight: normal;">(2025–Present)</span></h3>
+  <ul>
+    <li>Analyzed datasets from Google Analytics and Excel to identify trends.</li>
+    <li>Created reusable Power BI templates and Excel visuals for dashboards.</li>
+    <li>Assisted with data formatting, testing, and tool integration.</li>
+    <li>Managed data access and supported troubleshooting display issues.</li>
+    <li>Reviewed KPIs like session growth and country distribution.</li>
+    <li>Produced reports guiding resource placement and performance trends.</li>
+  </ul>
+  <br><br>
+
+  <h3>IT Technical Analyst – Adventus IT Services (Philippines) <span style="font-weight: normal;">(2024–2025)</span></h3>
+  <ul>
+    <li>Provided first-level tech support for hardware, software, and networking.</li>
+    <li>Conducted diagnostics and implemented IT-compliant solutions.</li>
+    <li>Tested software, documented bugs, and verified feature updates.</li>
+    <li>Analyzed user needs and contributed to system/process improvements.</li>
+    <li>Maintained system specs and config documentation.</li>
+    <li>Assisted with deployments and post-implementation support.</li>
+    <li>Configured remote/mobile access for hybrid workers.</li>
+    <li>Tracked assets and generated usage/inventory reports.</li>
+  </ul>
+</section>
+
+ <section id="training" class="card expandable">
+      <h2>Training</h2>
+      <ul>
+        <li>Data Analyst – Advance Careers UK (April 2025)
+          <ul>
+            <li>Data preprocessing, descriptive statistics, regression analysis</li>
+            <li>Excel with SUMIF, charts, filters, conditional formatting</li>
+            <li>Machine learning introduction</li>
+            <li>Projects: Sales dashboard, pharmaceutical regression, Excel analytics</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+	
+	<section id="Skills" class="card expandable">
+      <h2>Tech Stack/Skills</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 1rem; font-size: 2rem;">
+        <i class="fab fa-java"></i>
+        <i class="fab fa-python"></i>
+        <i class="fab fa-html5"></i>
+        <i class="fab fa-css3-alt"></i>
+        <i class="fab fa-js-square"></i>
+        <i class="fab fa-linux"></i>
+        <i class="fab fa-windows"></i>
+        <i class="fab fa-github"></i>
+      </div>
+	  <br>
+	  <div class="three-col-flex">
+  <ul>
+    <li>Java</li>
+    <li>C, C++, C#</li>
+    <li>HTML, CSS, JavaScript</li>
+    <li>Python</li>
+    <li>MySQL</li>
+    <li>Data Analysis</li>
+    <li>Problem Solving</li>
+    <li>Critical Thinking</li>
+    <li>IT Troubleshooting</li>
+  </ul>
+  <ul>
+    <li>vSphere</li>
+    <li>vCenter</li>
+    <li>Windows</li>
+    <li>VMWare</li>
+    <li>Time management</li>
+    <li>TCP/IP</li>
+    <li>TCP</li>
+    <li>SAN</li>
+    <li>Microsoft Windows Server</li>
+  </ul>
+  <ul>
+    <li>Microsoft Office</li>
+    <li>Intune</li>
+    <li>IT support</li>
+    <li>IT</li>
+    <li>DNS</li>
+    <li>DHCP</li>
+    <li>Communication skills</li>
+    <li>Azure</li>
+    <li>Active Directory</li>
+  </ul>
 </div>
-
-    <div class="card" id="experience">
-  <h2>Work Experience</h2>
-  <h3>Data Analyst – Digital Echoes (06/2025 – Current)</h3>
-  <ul>
-    <li>Analyzed datasets from Google Analytics and Excel to identify trends in sessions, users, and acquisition channels.</li>
-    <li>Created reusable Power BI templates and Excel visuals for consistent reporting and dashboard updates.</li>
-    <li>Assisted in data formatting, testing, and integration across tools to ensure clean transitions and clear outputs.</li>
-    <li>Managed data access and supported peers in troubleshooting data display and metric calculation issues.</li>
-    <li>Reviewed performance metrics and built tracking for KPIs like session growth and country distribution.</li>
-    <li>Produced structured reports that guided insights on resource placement and performance trends.</li>
-  </ul>
-  <h3>IT Technical Analyst – Adventus IT Services (06/2024 – 12/2025)</h3>
-  <ul>
-    <li>Provided first-level technical support and resolved hardware, software, and network-related issues to minimize system downtime.</li>
-    <li>Conducted system diagnostics and assisted in implementing solutions aligned with organizational IT standards.</li>
-    <li>Collaborated with software developers to test applications, document bugs, and verify feature enhancements.</li>
-    <li>Analyzed user requirements and contributed to system upgrades and process improvements.</li>
-    <li>Created and maintained technical documentation, including system specifications and configuration guides.</li>
-    <li>Participated in IT projects by gathering data, supporting deployments, and conducting post-implementation reviews.</li>
-    <li>Assisted with the configuration and management of mobile and remote-access solutions to support a hybrid workforce.</li>
-    <li>Supported IT asset management through inventory tracking and usage reporting.</li>
-  </ul>
-</div>
-
-    <div class="card" id="training">
-  <h2>Training Course</h2>
-  <p><strong>Data Analyst – Advance Careers UK (04/2025)</strong></p>
-  <p>Topics covered:</p>
-  <ul>
-    <li>Data preprocessing</li>
-    <li>Descriptive statistics</li>
-    <li>Regression analysis</li>
-    <li>Data visualization using charts and PivotTables</li>
-    <li>Excel functions like SUMIF, filtering, and conditional formatting</li>
-    <li>Introduction to machine learning techniques</li>
-    <li>Real-world applications in pharmaceutical and business data</li>
-  </ul>
-  <p>Projects:</p>
-  <ul>
-    <li>Sales performance analysis using Excel</li>
-    <li>Predictive modeling using linear regression on pharmaceutical data</li>
-    <li>Dashboard creation for summarizing large datasets</li>
-  </ul>
-</div>
-
-    <div class="card" id="skills">
-      <h2>Skills Acquired</h2>
-      <div class="skill-columns">
-        <div>
-          <strong>Programming</strong><br>
-          C, C++, C#, Java, Python, HTML, CSS, JavaScript, MySQL
+    </section>
+	
+	<section id="skills-progress" class="card expandable">
+      <h2>Skill Proficiency</h2>
+      <div>
+        <p>Java</p>
+        <div style="background:#333;width:100%;height:10px;border-radius:5px">
+          <div style="width:85%;height:100%;background:#00bcd4;border-radius:5px"></div>
         </div>
-        <div>
-          <strong>Tools</strong><br>
-          Power BI, Excel, MS Office
+        <p>Python</p>
+        <div style="background:#333;width:100%;height:10px;border-radius:5px">
+          <div style="width:80%;height:100%;background:#00bcd4;border-radius:5px"></div>
         </div>
-        <div>
-          <strong>Soft Skills</strong><br>
-          Troubleshooting, teamwork, problem-solving, leadership
+        <p>IT Troubleshooting</p>
+        <div style="background:#333;width:100%;height:10px;border-radius:5px">
+          <div style="width:90%;height:100%;background:#00bcd4;border-radius:5px"></div>
+        </div>
+        <p>Networking</p>
+        <div style="background:#333;width:100%;height:10px;border-radius:5px">
+          <div style="width:75%;height:100%;background:#00bcd4;border-radius:5px"></div>
         </div>
       </div>
-    </div>
-
-    <div class="card" id="certifications">
+    </section>
+	
+	 <section id="tools" class="card expandable">
+      <h2>Tools</h2>
+      <div class="three-col-flex">
+        <ul>
+          <li>Power BI</li>
+          <li>Excel</li>
+          <li>VirtualBox / VMware</li>
+          <li>Wireshark</li>
+          <li>FTK Imager</li>
+          <li>Kali Linux</li>
+          <li>Firebase</li>
+          <li>Postman</li>
+          <li>Git & GitHub</li>
+        </ul>
+      </div>
+    </section>
+    
+	<section id="education" class="card expandable">
+      <h2>Education</h2>
+      <p><strong>BSc Computer Science</strong> – Arellano University, Philippines (2025)</p>
+      <p><strong>Senior High School</strong> – Kings Senior High School, Nigeria (2017)</p>
+      <p><strong>Junior High School</strong> – Kings Junior High School, Nigeria (2014)</p>
+      <p><strong>Primary</strong> – Kings Elementary School, Nigeria (2011)</p>
+    </section>
+	
+	<section id="certifications" class="card expandable">
       <h2>Certifications</h2>
       <ul>
-        <li>CC Domain 1: Security Principles – (ISC)²</li>
-        <li>CC Domain 2: Incident Response – (ISC)²</li>
-        <li>CC Domain 3: Access Control – (ISC)²</li>
-        <li>CC Domain 4: Network Security – (ISC)²</li>
+        <li>CC Domain 1: Security Principles – (ISC)² (Valid: Jan 2025 – Jan 2028)</li>
+        <li>CC Domain 2: Incident Response & BCDR – (ISC)² (Valid: Jan 2025 – Jan 2028)</li>
+        <li>CC Domain 3: Access Control – (ISC)² (Valid: Jan 2025 – Jan 2028)</li>
+        <li>CC Domain 4: Network Security – (ISC)² (Valid: Jan 2025 – Jan 2028)</li>
       </ul>
-    </div>
-
-    <div class="card" id="education">
-      <h2>Education</h2>
-      <p><strong>MSc Cyber Security – University of the West of England</strong>, Sep 2025 – Current</p>
-      <p><strong>BSc Computer Science – Arellano University</strong>, 2025<br>
-      Dissertation in Software Development</p>
-      <p><strong>Senior/Junior High & Primary</strong> – Kings Schools, Nigeria</p>
-    </div>
-
-    <div class="card" id="projects">
+    </section>
+	
+	 <section id="projects" class="card expandable">
       <h2>Projects</h2>
       <ul>
-        <li>File Management System</li>
-        <li>Document Tracking System</li>
-        <li>Smart Destination Alert System (LRT-1)</li>
-        <li>Ticket Management System</li>
-        <li>Arduino Line Tracking Robot Car</li>
-        <li>PC Build & HTML/PHP-based Websites</li>
+        <li>Smart Destination Alert System – Real-time commuter alert app</li>
+        <li>Document Tracking System – Approval flow tracker</li>
+        <li>File Management System – Digital file organization tool</li>
+        <li>Ticket Management System – Support ticket platform</li>
+        <li>Arduino Line Tracking Robot Car – Path-following robot using sensors</li>
+        <li>PC Build – Custom rig for performance work</li>
+        <li>HTML & PHP Websites – Dynamic web solutions</li>
       </ul>
-    </div>
+    </section>
+	
+    <section id="portfolio" class="card expandable">
+      <h2>Downloadable Portfolio</h2>
+      <ul>
+        <li><a href="#">Sample Project Report.pdf</a></li>
+        <li><a href="#">UI Design Screenshots.zip</a></li>
+        <li><a href="#">Case Study Summary.docx</a></li>
+      </ul>
+    </section>
 
-    <div class="card" id="goals">
-  <h2>Career Goals</h2>
-  <ul>
-    <li>Gain hands-on experience in software, mobile, and web development while enhancing problem-solving and analytical skills.</li>
-    <li>Develop expertise in AI, machine learning, and emerging technologies to contribute to innovative tech solutions.</li>
-  </ul>
-</div>
-  </div>
+    <section id="experience-timeline" class="card expandable">
+      <h2>Experience Timeline</h2>
+      <div style="border-left: 2px solid #00bcd4; padding-left: 1rem;">
+        <p><strong>2025–Present</strong> – Data Analyst at Digital Echoes (London)</p>
+        <p><strong>2024–2025</strong> – IT Technical Analyst at Adventus IT Services (Philippines)</p>
+      </div>
+    </section>
+
+    <section id="testimonials" class="card expandable">
+      <h2>Testimonials</h2>
+      <blockquote style="border-left: 4px solid #00bcd4; padding-left: 1rem; margin: 1rem 0; color: #ccc;">
+        “David’s attention to detail and ability to troubleshoot under pressure made him an asset to our IT team.”<br>
+        <span style="font-size: 0.8rem; color: #888;">– Former Supervisor, Adventus</span>
+      </blockquote>
+      <blockquote style="border-left: 4px solid #00bcd4; padding-left: 1rem; margin: 1rem 0; color: #ccc;">
+        “One of the most resourceful and reliable analysts I’ve worked with.”<br>
+        <span style="font-size: 0.8rem; color: #888;">– Team Lead, Digital Echoes</span>
+      </blockquote>
+    </section>
+
+    <section id="project-gallery" class="card expandable">
+      <h2>Project Screenshots</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
+        <img src="https://via.placeholder.com/150" alt="Screenshot 1" style="border-radius: 8px; width: 150px;">
+        <img src="https://via.placeholder.com/150" alt="Screenshot 2" style="border-radius: 8px; width: 150px;">
+        <img src="https://via.placeholder.com/150" alt="Screenshot 3" style="border-radius: 8px; width: 150px;">
+      </div>
+    </section>
+  </main>
 </body>
 </html>
-
